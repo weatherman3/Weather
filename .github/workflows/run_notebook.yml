@@ -25,12 +25,14 @@ jobs:
       - name: Run Jupyter Notebook
         run: python run_notebook.py
 
+      - name: Set up Git credentials for push
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/weatherman3/Weather.git
+
       - name: Commit output
         run: |
-          git config --local user.name "GitHub Actions"
-          git config --local user.email "actions@github.com"
           git add output_notebook.ipynb
           git commit -m "Update output notebook"
           git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}  # Use the token saved in secrets
