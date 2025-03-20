@@ -1,5 +1,8 @@
 name: Run Jupyter Notebook
 
+permissions:
+  contents: write  # Allow write access to the repository's contents
+  
 on:
   schedule:
     - cron: "59 23 * * 0"  # Every Sunday at 11:59 PM UTC (adjust if needed)
