@@ -34,6 +34,4 @@ jobs:
           git config --local user.email "actions@github.com"
           git add output_notebook.ipynb
           git commit -m "Update output notebook"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use the default GitHub Actions token
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
