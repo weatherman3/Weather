@@ -32,3 +32,5 @@ jobs:
           git add output_notebook.ipynb
           git commit -m "Update output notebook"
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}  # Use the token saved in secrets
