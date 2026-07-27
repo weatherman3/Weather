@@ -23,7 +23,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install nbformat nbconvert pandas xlsxwriter jupyter ipykernel requests-cache retry-requests openmeteo-requests
+          pip install nbformat nbconvert pandas xlsxwriter jupyter ipykernel requests-cache retry-requests openmeteo-requests pytz
 
       - name: Run Jupyter Notebook
         run: python run_notebook.py
