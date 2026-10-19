@@ -2,7 +2,7 @@ name: Run Jupyter Notebook
 
 permissions:
   contents: write  # Allow write access to the repository's contents
-  
+
 on:
   schedule:
     - cron: "30 4 * * 1"  # Every Monday at 3:30 AM UTC (equivalent to Sunday 7:30 or 8:30 PM PST depending on Daylight Savings)
@@ -27,6 +27,8 @@ jobs:
 
       - name: Run Jupyter Notebook
         run: python run_notebook.py
+        env:
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
 
       - name: Commit output
         run: |
